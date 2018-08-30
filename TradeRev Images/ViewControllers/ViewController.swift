@@ -47,7 +47,12 @@ class ViewController: UIViewController, JSONRequestDelegate {
     
     @IBAction func exitFullScreen(_ sender: Any) {
         fullScreenImageView.isHidden = true
+        
+        let i = IndexPath(item: myDefaults.integer(forKey: "full_screen_image_id"), section: 0)
+        imageCollectionView.reloadData()
+        imageCollectionView.scrollToItem(at: i, at: .centeredVertically, animated: true)
     }
+    
     @IBAction func swipeRight(_ sender: Any) {
         let index = myDefaults.integer(forKey: "full_screen_image_id")
         let nextIndex = index - 1
@@ -66,6 +71,7 @@ class ViewController: UIViewController, JSONRequestDelegate {
         }
         myDefaults.set(nextIndex, forKey: "full_screen_image_id")
     }
+    
     @IBAction func swipeLeft(_ sender: Any) {
         let index = myDefaults.integer(forKey: "full_screen_image_id")
         let nextIndex = index + 1
