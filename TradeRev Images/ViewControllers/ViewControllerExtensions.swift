@@ -52,6 +52,8 @@ extension ViewController: UICollectionViewDataSource{
 
 extension ViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        myDefaults.set(indexPath.row, forKey: "full_screen_image_id")
+        
         let imageStringURL = images[indexPath.row].urls!["small"]
         let imageURL = URL(string: imageStringURL!)!
         let imageData = try! Data(contentsOf: imageURL)
