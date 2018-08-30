@@ -1,6 +1,6 @@
 //
 //  JSONService.swift
-//  API Test
+//  TradeRev Images
 //
 //  Created by Armin Gurdic on 2018-08-29.
 //  Copyright © 2018 Armin. All rights reserved.
@@ -31,6 +31,7 @@ class JSONService{
                 print("Error serializing json: ", jsonErr)
             }
             
-        }.resume()
+            }.resume()
     }
 }
+
