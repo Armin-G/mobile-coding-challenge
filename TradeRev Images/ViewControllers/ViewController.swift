@@ -15,13 +15,15 @@ class ViewController: UIViewController, JSONRequestDelegate {
     var images: [Image] = []
     var imageCollectionViewFlowLayout: UICollectionViewFlowLayout?
     
+    //Fullscreen Image Variables
+    @IBOutlet weak var fullScreenImageView: UIView!
+    @IBOutlet weak var fullScreenImage: UIImageView!
+    @IBOutlet weak var fullScreenImageDesc: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
-//        self.imageCollectionViewFlowLayout = self.imageCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
-//        self.imageCollectionViewFlowLayout?.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-//        self.imageCollectionViewFlowLayout?.invalidateLayout()
-        
         let myService = JSONService()
         myService.delegate = self
         
@@ -41,6 +43,9 @@ class ViewController: UIViewController, JSONRequestDelegate {
         }
     }
     
+    @IBAction func exitFullScreen(_ sender: Any) {
+        fullScreenImageView.isHidden = true
+    }
 }
 
 

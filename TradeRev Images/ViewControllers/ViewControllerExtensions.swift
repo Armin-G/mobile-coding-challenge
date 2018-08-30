@@ -52,7 +52,15 @@ extension ViewController: UICollectionViewDataSource{
 
 extension ViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(images[indexPath.item].description ?? "No description available")
+        let imageStringURL = images[indexPath.row].urls!["small"]
+        let imageURL = URL(string: imageStringURL!)!
+        let imageData = try! Data(contentsOf: imageURL)
+        
+        fullScreenImage.image = UIImage(data: imageData)
+        let imageDesc = images[indexPath.row].description ?? "No description available"
+        let desc = "\"" + imageDesc  + "\""
+        fullScreenImageDesc.text = desc
+        fullScreenImageView.isHidden = false
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets{
