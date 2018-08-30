@@ -8,18 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, JSONRequestDelegate {
 
+    var images: [Image] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let myService = JSONService()
+        myService.delegate = self
+        
+        myService.sendRequest()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func onImageReceive(images: [Image]) {
+        self.images = images
+        print(self.images)
     }
-
-
 }
 
