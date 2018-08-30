@@ -17,6 +17,7 @@
 		EB9E4BCA21379004004F9AC2 /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E4BC921379004004F9AC2 /* JSONService.swift */; };
 		EB9E4BCC21379036004F9AC2 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E4BCB21379036004F9AC2 /* Image.swift */; };
 		EB9E4BCE21379048004F9AC2 /* JSONRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E4BCD21379048004F9AC2 /* JSONRequestDelegate.swift */; };
+		EB9E4BD921386670004F9AC2 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E4BD821386670004F9AC2 /* ViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		EB9E4BC921379004004F9AC2 /* JSONService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONService.swift; sourceTree = "<group>"; };
 		EB9E4BCB21379036004F9AC2 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		EB9E4BCD21379048004F9AC2 /* JSONRequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRequestDelegate.swift; sourceTree = "<group>"; };
+		EB9E4BD821386670004F9AC2 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +66,10 @@
 		EB1187962137256200B5E902 /* TradeRev Images */ = {
 			isa = PBXGroup;
 			children = (
+				EB9E4BDA213866B8004F9AC2 /* ViewControllers */,
 				EB9E4BCF21379090004F9AC2 /* Util */,
 				EB9E4BB6213786C7004F9AC2 /* JSONService */,
 				EB1187972137256200B5E902 /* AppDelegate.swift */,
-				EB1187992137256200B5E902 /* ViewController.swift */,
 				EB11879B2137256200B5E902 /* Main.storyboard */,
 				EB11879E2137256200B5E902 /* Assets.xcassets */,
 				EB1187A02137256200B5E902 /* LaunchScreen.storyboard */,
@@ -93,6 +95,15 @@
 				EB9E4BC721378F06004F9AC2 /* CollectionImageViewCell.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		EB9E4BDA213866B8004F9AC2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EB1187992137256200B5E902 /* ViewController.swift */,
+				EB9E4BD821386670004F9AC2 /* ViewControllerExtensions.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9E4BD921386670004F9AC2 /* ViewControllerExtensions.swift in Sources */,
 				EB9E4BC821378F06004F9AC2 /* CollectionImageViewCell.swift in Sources */,
 				EB9E4BCE21379048004F9AC2 /* JSONRequestDelegate.swift in Sources */,
 				EB9E4BCC21379036004F9AC2 /* Image.swift in Sources */,

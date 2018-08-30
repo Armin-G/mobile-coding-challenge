@@ -18,33 +18,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zrl-sq-S7Y">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zrl-sq-S7Y">
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rkM-Jc-zBd">
-                                    <size key="itemSize" width="99" height="96"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="25" id="6mF-H4-F0o">
+                                    <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="25" minY="25" maxX="25" maxY="25"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="aIu-vk-fIQ" customClass="CollectionImageViewCell" customModule="TradeRev_Images" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="99" height="96"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="ImageCell" id="aIu-vk-fIQ" customClass="CollectionImageViewCell" customModule="TradeRev_Images" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="25" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="99" height="96"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Jz-AL-ycl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="99" height="96"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" red="0.48296440972222221" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="6Jz-AL-ycl" firstAttribute="leading" secondItem="aIu-vk-fIQ" secondAttribute="leading" id="C6Z-GX-IBm"/>
-                                            <constraint firstItem="6Jz-AL-ycl" firstAttribute="top" secondItem="aIu-vk-fIQ" secondAttribute="top" id="Ld8-b3-xim"/>
-                                            <constraint firstAttribute="trailing" secondItem="6Jz-AL-ycl" secondAttribute="trailing" id="kWp-wb-s9T"/>
-                                            <constraint firstAttribute="bottom" secondItem="6Jz-AL-ycl" secondAttribute="bottom" id="qUR-7o-TKC"/>
+                                            <constraint firstItem="6Jz-AL-ycl" firstAttribute="leading" secondItem="aIu-vk-fIQ" secondAttribute="leading" id="PXw-bf-i8y"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Jz-AL-ycl" secondAttribute="trailing" id="u2S-d2-OuV"/>
+                                            <constraint firstItem="6Jz-AL-ycl" firstAttribute="top" secondItem="aIu-vk-fIQ" secondAttribute="top" id="u48-1G-7hs"/>
+                                            <constraint firstAttribute="bottom" secondItem="6Jz-AL-ycl" secondAttribute="bottom" id="zlm-MS-EZT"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="6Jz-AL-ycl" id="Qyx-Mf-wfs"/>
