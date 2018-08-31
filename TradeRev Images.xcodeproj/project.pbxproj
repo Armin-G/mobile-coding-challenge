@@ -34,6 +34,7 @@
 		EB1187A12137256200B5E902 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB1187A32137256200B5E902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB44EA672138BC5E007F4AB6 /* ResizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImage.swift; sourceTree = "<group>"; };
+		EB942E5F2139C44F00FF9A15 /* SFCompactDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFCompactDisplay-Regular.otf"; path = "../../../../../../../Volumes/SF-Font/SF Compact/SFCompactDisplay-Regular.otf"; sourceTree = "<group>"; };
 		EB9E4BC521378EBE004F9AC2 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
 		EB9E4BC721378F06004F9AC2 /* CollectionImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionImageViewCell.swift; sourceTree = "<group>"; };
 		EB9E4BC921379004004F9AC2 /* JSONService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONService.swift; sourceTree = "<group>"; };
@@ -92,6 +93,7 @@
 		EB1187962137256200B5E902 /* TradeRev Images */ = {
 			isa = PBXGroup;
 			children = (
+				EB942E5E2139C44400FF9A15 /* Fonts */,
 				EB9E4BDA213866B8004F9AC2 /* ViewControllers */,
 				EB9E4BCF21379090004F9AC2 /* Util */,
 				EB9E4BB6213786C7004F9AC2 /* JSONService */,
@@ -102,6 +104,14 @@
 				EB1187A32137256200B5E902 /* Info.plist */,
 			);
 			path = "TradeRev Images";
+			sourceTree = "<group>";
+		};
+		EB942E5E2139C44400FF9A15 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EB942E5F2139C44F00FF9A15 /* SFCompactDisplay-Regular.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		EB9E4BB6213786C7004F9AC2 /* JSONService */ = {

@@ -10,5 +10,6 @@ struct Image: Decodable{
     let width: Int?
     let height: Int?
     let description: String?
+    let likes: Int?
     let urls: [String: String]?
 }

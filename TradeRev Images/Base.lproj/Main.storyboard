@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFCompactDisplay-Regular.otf">
+            <string>SFCompactDisplay-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -20,7 +25,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zrl-sq-S7Y">
                                 <rect key="frame" x="0.0" y="70" width="414" height="666"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="25" id="6mF-H4-F0o">
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -61,13 +66,13 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Images" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJh-MY-v14">
-                                        <rect key="frame" x="160" y="7.6666666666666679" width="94" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <rect key="frame" x="162.66666666666666" y="8.6666666666666679" width="89.333333333333343" height="33.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="7ED-Aa-dmw"/>
                                     <constraint firstItem="zJh-MY-v14" firstAttribute="centerY" secondItem="7LR-SG-E1V" secondAttribute="centerY" id="EAV-YR-2LG"/>
@@ -77,40 +82,53 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dog-Op-DsD" userLabel="Fullscreen Image View">
                                 <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVB-ol-1Qg">
-                                        <rect key="frame" x="50" y="680.66666666666663" width="314" height="20.333333333333371"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nr0-wV-SWl">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLd-DA-qQ8" userLabel="Fullscreen Image">
+                                        <rect key="frame" x="82" y="0.0" width="250" height="717.33333333333337"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nr0-wV-SWl">
                                         <rect key="frame" x="15" y="15" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="g4h-gL-ivC"/>
                                             <constraint firstAttribute="height" constant="30" id="vD2-2J-uJH"/>
                                         </constraints>
                                         <state key="normal" image="exit">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="exitFullScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kOI-yG-7vh"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLd-DA-qQ8" userLabel="Fullscreen Image">
-                                        <rect key="frame" x="82" y="215" width="250" height="287"/>
-                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVB-ol-1Qg">
+                                        <rect key="frame" x="15" y="676" width="300" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="qvK-qW-bE4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="19"/>
+                                        <color key="textColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="2" height="2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 Likes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceW-Uz-Lx5">
+                                        <rect key="frame" x="332" y="676.33333333333337" width="66.666666666666686" height="25"/>
+                                        <fontDescription key="fontDescription" name="SFCompactDisplay-Regular" family="SF Compact Display" pointSize="19"/>
+                                        <color key="textColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="2" height="2"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.058823529411764705" green="0.058823529411764705" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="XVB-ol-1Qg" secondAttribute="trailing" constant="50" id="6Xu-Rr-8hk"/>
-                                    <constraint firstAttribute="bottom" secondItem="XVB-ol-1Qg" secondAttribute="bottom" constant="15" id="8es-Gc-aks"/>
                                     <constraint firstItem="cLd-DA-qQ8" firstAttribute="centerY" secondItem="Dog-Op-DsD" secondAttribute="centerY" id="Ezz-BM-dg8"/>
                                     <constraint firstItem="Nr0-wV-SWl" firstAttribute="top" secondItem="Dog-Op-DsD" secondAttribute="top" constant="15" id="Mpq-xh-v45"/>
                                     <constraint firstItem="cLd-DA-qQ8" firstAttribute="centerX" secondItem="Dog-Op-DsD" secondAttribute="centerX" id="Nlb-eO-a5a"/>
+                                    <constraint firstAttribute="trailing" secondItem="ceW-Uz-Lx5" secondAttribute="trailing" constant="15" id="fsz-mV-Nhk"/>
+                                    <constraint firstAttribute="bottom" secondItem="XVB-ol-1Qg" secondAttribute="bottom" constant="15" id="jLM-WO-ooR"/>
                                     <constraint firstItem="Nr0-wV-SWl" firstAttribute="leading" secondItem="Dog-Op-DsD" secondAttribute="leading" constant="15" id="kqu-S9-ybM"/>
-                                    <constraint firstItem="XVB-ol-1Qg" firstAttribute="centerX" secondItem="Dog-Op-DsD" secondAttribute="centerX" id="tAQ-Fo-lae"/>
-                                    <constraint firstItem="XVB-ol-1Qg" firstAttribute="leading" secondItem="Dog-Op-DsD" secondAttribute="leading" constant="50" id="vzw-sy-ZwU"/>
+                                    <constraint firstAttribute="bottom" secondItem="ceW-Uz-Lx5" secondAttribute="bottom" constant="15" id="liU-lR-YK4"/>
+                                    <constraint firstItem="XVB-ol-1Qg" firstAttribute="leading" secondItem="Dog-Op-DsD" secondAttribute="leading" constant="15" id="yrk-UU-gpY"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="iUU-VS-cxZ" appends="YES" id="S9a-wo-JDS"/>
@@ -118,7 +136,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Zrl-sq-S7Y" secondAttribute="bottom" id="1LP-Lo-87u"/>
                             <constraint firstItem="7LR-SG-E1V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4Md-OR-opF"/>
@@ -129,14 +147,16 @@
                             <constraint firstItem="Dog-Op-DsD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZLt-LK-xdV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dog-Op-DsD" secondAttribute="bottom" id="h4g-jG-kQQ"/>
                             <constraint firstItem="7LR-SG-E1V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jwN-Gg-yqp"/>
-                            <constraint firstItem="Zrl-sq-S7Y" firstAttribute="top" secondItem="7LR-SG-E1V" secondAttribute="bottom" id="ls7-hX-Zk5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7LR-SG-E1V" secondAttribute="trailing" id="npo-LP-nQp"/>
+                            <constraint firstItem="Zrl-sq-S7Y" firstAttribute="top" secondItem="7LR-SG-E1V" secondAttribute="bottom" id="oMf-1i-saJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="fullScreenImage" destination="cLd-DA-qQ8" id="9h7-0U-7qH"/>
                         <outlet property="fullScreenImageDesc" destination="XVB-ol-1Qg" id="g0b-xk-bXu"/>
+                        <outlet property="fullScreenImageExitButton" destination="Nr0-wV-SWl" id="d6m-l9-RvZ"/>
+                        <outlet property="fullScreenImageLikes" destination="ceW-Uz-Lx5" id="LQT-eL-dW6"/>
                         <outlet property="fullScreenImageView" destination="Dog-Op-DsD" id="tmv-ev-Srh"/>
                         <outlet property="headerView" destination="7LR-SG-E1V" id="nRc-vr-juh"/>
                         <outlet property="imageCollectionView" destination="Zrl-sq-S7Y" id="xeW-Gb-R5b"/>

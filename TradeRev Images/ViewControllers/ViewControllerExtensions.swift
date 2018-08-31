@@ -49,16 +49,8 @@ extension ViewController: UICollectionViewDataSource{
 extension ViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         isInFullScreenMode = true;
-        myDefaults.set(indexPath.row, forKey: "full_screen_image_id")
-        setFullScreenSizes(mode: UIDevice.current.orientation)
-        
-        let imageDesc = images[indexPath.row].description ?? "No description available"
-        let desc = "\"" + imageDesc  + "\""
-        fullScreenImageDesc.text = desc
+        setupFullScreenImage(index: indexPath.row)
         fullScreenImageView.isHidden = false
-        
-        Nuke.loadImage(with: URL(string: images[indexPath.row].urls!["regular"]!)!, into: fullScreenImage)
-        fullScreenImage.image = fullScreenImage.image?.resizeImage(newSize: fullScreenImage.bounds.size)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets{

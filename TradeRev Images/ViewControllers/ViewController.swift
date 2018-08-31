@@ -22,13 +22,14 @@ class ViewController: UIViewController, JSONRequestDelegate {
     @IBOutlet weak var fullScreenImageView: UIView!
     @IBOutlet weak var fullScreenImage: UIImageView!
     @IBOutlet weak var fullScreenImageDesc: UILabel!
-    
+    @IBOutlet weak var fullScreenImageLikes: UILabel!
+    @IBOutlet weak var fullScreenImageExitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         myDefaults.register(defaults: ["full_screen_image_id" : 0])
         NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-    
+
         let myService = JSONService()
         myService.delegate = self
         
@@ -44,33 +45,34 @@ class ViewController: UIViewController, JSONRequestDelegate {
     @objc func rotated(){
         if(isInFullScreenMode){
             if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {//Landscape
-                setFullScreenSizes(mode: .landscapeLeft)
+                setFullScreenSizes(mode: .landscapeLeft, index: myDefaults.integer(forKey: "full_screen_image_id"))
             }
 
             if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {// Portrait
-                setFullScreenSizes(mode: .portrait)
+                setFullScreenSizes(mode: .portrait, index: myDefaults.integer(forKey: "full_screen_image_id"))
             }
         }
     }
 
     //Updates the UIImageView in full screen mode to maximize screen usage while keeping original image aspect ratio
-    func setFullScreenSizes(mode: UIDeviceOrientation){
+    func setFullScreenSizes(mode: UIDeviceOrientation, index: Int){
         let screenHeight = Double(fullScreenImageView.bounds.size.height)
         let screenWidth = Double(fullScreenImageView.bounds.size.width)
-        let ogHeight = Double(images[myDefaults.integer(forKey: "full_screen_image_id")].height!)
-        let ogWidth = Double(images[myDefaults.integer(forKey: "full_screen_image_id")].width!)
+        let ogHeight = Double(images[index].height!)
+        let ogWidth = Double(images[index].width!)
 
         var scaledHeight: Double = 0.0
         var scaledWidth: Double = 0.0
-        
+                
         if(mode == .portrait){
             scaledWidth = screenWidth
             scaledHeight = scaledWidth * ogHeight / ogWidth
         }else{
-            scaledHeight = screenHeight * 0.8
+            scaledHeight = screenHeight
             scaledWidth = scaledHeight * ogWidth / ogHeight
         }
         fullScreenImage.bounds.size = CGSize(width: scaledWidth, height: scaledHeight)
+        fullScreenImageExitButton.tintColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
     }
 
     //Delegate function to update collectionview once JSONService has successfully retrieved images
@@ -97,7 +99,7 @@ class ViewController: UIViewController, JSONRequestDelegate {
         if(index == 0){// Can't go left anymore
             return
         }else{
-            setupNewImage(nextIndex: nextIndex)
+            setupFullScreenImage(index: nextIndex)
         }
     }
     
@@ -109,19 +111,24 @@ class ViewController: UIViewController, JSONRequestDelegate {
         if(index == images.count - 1){// Can't go right anymore
             return
         }else{
-            setupNewImage(nextIndex: nextIndex)
+            setupFullScreenImage(index: nextIndex)
         }
     }
     
-    // Used by the swipe gestures to setup and insert the next image that you swiped to
-    func setupNewImage(nextIndex: Int){
-        myDefaults.set(nextIndex, forKey: "full_screen_image_id")
-        setFullScreenSizes(mode: UIDevice.current.orientation)
-        Nuke.loadImage(with: URL(string: images[nextIndex].urls!["regular"]!)!, into: fullScreenImage)
-        let imageDesc = images[nextIndex].description ?? "No description available"
-        let desc = "\"" + imageDesc  + "\""
+    // Used to set up the full screen image and it's information
+    func setupFullScreenImage(index: Int){
+        myDefaults.set(index, forKey: "full_screen_image_id")
+        setFullScreenSizes(mode: UIDevice.current.orientation, index: index)
+        Nuke.loadImage(with: URL(string: images[index].urls!["regular"]!)!, into: fullScreenImage)
+        let imageDesc = images[index].description ?? "No description available"
+        let likeCount = images[index].likes ?? 0
+        let likeDesc = "\(likeCount) likes"
+        let desc = "\"\(imageDesc)\""
         fullScreenImageDesc.text = desc
+        fullScreenImageLikes.text = likeDesc
         fullScreenImage.image = fullScreenImage.image?.resizeImage(newSize: fullScreenImage.bounds.size)
+        self.view.setNeedsLayout()
+        self.view.setNeedsDisplay()
     }
 }
 
