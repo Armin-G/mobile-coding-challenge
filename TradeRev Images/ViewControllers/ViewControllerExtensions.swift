@@ -6,10 +6,10 @@
 //  Copyright © 2018 Armin. All rights reserved.
 //
 import UIKit
+import Nuke
 
 extension ViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //Sideways use height instead of width
         let deviceOrientation = UIDevice.current.orientation
         
         let screenWidth = self.view.frame.size.width
@@ -40,42 +40,36 @@ extension ViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! CollectionImageViewCell
-        
-        let imageStringURL = images[indexPath.row].urls!["small"]
-        let imageURL = URL(string: imageStringURL!)!
-        let imageData = try! Data(contentsOf: imageURL)
-        
-        cell.imageView.image = UIImage(data: imageData)
+        Nuke.loadImage(with: URL(string: images[indexPath.row].urls!["regular"]!)!, into: cell.imageView)
+
         return cell
     }
 }
 
 extension ViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        isInFullScreenMode = true;
         myDefaults.set(indexPath.row, forKey: "full_screen_image_id")
+        setFullScreenSizes(mode: UIDevice.current.orientation)
         
-        let imageStringURL = images[indexPath.row].urls!["small"]
-        let imageURL = URL(string: imageStringURL!)!
-        let imageData = try! Data(contentsOf: imageURL)
-        
-        fullScreenImage.image = UIImage(data: imageData)
         let imageDesc = images[indexPath.row].description ?? "No description available"
         let desc = "\"" + imageDesc  + "\""
         fullScreenImageDesc.text = desc
         fullScreenImageView.isHidden = false
+        
+        Nuke.loadImage(with: URL(string: images[indexPath.row].urls!["regular"]!)!, into: fullScreenImage)
+        fullScreenImage.image = fullScreenImage.image?.resizeImage(newSize: fullScreenImage.bounds.size)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets{
-        // sideways use height instead of width
-        // iPad make insets bigger
         let deviceOrientation = UIDevice.current.orientation
         let device = UIDevice.current.userInterfaceIdiom
         
         let screenWidth = self.view.frame.size.width
         let screenHeight = self.view.frame.size.height
         
-        var leftRightInset: CGFloat = 0// = screenWidth * (1 / 15)
-        var inset: UIEdgeInsets //= UIEdgeInsets(top: 20, left: leftRightInset, bottom: 20, right: leftRightInset)
+        var leftRightInset: CGFloat = 0
+        var inset: UIEdgeInsets
         
         if(deviceOrientation == .portrait){// Use width to determine size
             if(device == .pad){// if iPad make insets bigger

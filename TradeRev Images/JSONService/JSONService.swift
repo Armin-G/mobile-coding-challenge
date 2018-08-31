@@ -12,14 +12,12 @@ class JSONService{
     var delegate: JSONRequestDelegate? = nil
     
     func sendRequest(){
-        let jsonURLString = "https://api.unsplash.com/photos/curated/?client_id=c091e96466487072b7924117c85475761f6d14b5c8373fa1becbfc0904455385"
+        let jsonURLString = "https://api.unsplash.com/photos/curated/?client_id=0badee5cd118448ae821afb785075e786cfbf8b46911cc5d0526e5cf3eb7a9e8"
         
         guard let url = URL(string: jsonURLString) else{
             return
         }
         URLSession.shared.dataTask(with: url) { (data, response, err) in
-            //perhaps check err
-            //check response status 200 OK
             guard let data = data else{
                 return
             }

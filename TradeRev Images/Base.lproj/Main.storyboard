@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TradeRev_Images" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zrl-sq-S7Y">
-                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <rect key="frame" x="0.0" y="70" width="414" height="666"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="25" id="6mF-H4-F0o">
                                     <size key="itemSize" width="150" height="150"/>
@@ -58,10 +58,10 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7LR-SG-E1V" userLabel="Header View">
-                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Images" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJh-MY-v14">
-                                        <rect key="frame" x="140.5" y="7.5" width="94" height="36"/>
+                                        <rect key="frame" x="160" y="7.6666666666666679" width="94" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -75,13 +75,10 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dog-Op-DsD" userLabel="Fullscreen Image View">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLd-DA-qQ8" userLabel="Fullscreen Image">
-                                        <rect key="frame" x="67" y="132" width="240" height="382"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVB-ol-1Qg">
-                                        <rect key="frame" x="166" y="522" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVB-ol-1Qg">
+                                        <rect key="frame" x="50" y="680.66666666666663" width="314" height="20.333333333333371"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -99,16 +96,21 @@
                                             <action selector="exitFullScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kOI-yG-7vh"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLd-DA-qQ8" userLabel="Fullscreen Image">
+                                        <rect key="frame" x="82" y="215" width="250" height="287"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="XVB-ol-1Qg" secondAttribute="trailing" constant="50" id="6Xu-Rr-8hk"/>
+                                    <constraint firstAttribute="bottom" secondItem="XVB-ol-1Qg" secondAttribute="bottom" constant="15" id="8es-Gc-aks"/>
+                                    <constraint firstItem="cLd-DA-qQ8" firstAttribute="centerY" secondItem="Dog-Op-DsD" secondAttribute="centerY" id="Ezz-BM-dg8"/>
                                     <constraint firstItem="Nr0-wV-SWl" firstAttribute="top" secondItem="Dog-Op-DsD" secondAttribute="top" constant="15" id="Mpq-xh-v45"/>
+                                    <constraint firstItem="cLd-DA-qQ8" firstAttribute="centerX" secondItem="Dog-Op-DsD" secondAttribute="centerX" id="Nlb-eO-a5a"/>
                                     <constraint firstItem="Nr0-wV-SWl" firstAttribute="leading" secondItem="Dog-Op-DsD" secondAttribute="leading" constant="15" id="kqu-S9-ybM"/>
-                                    <constraint firstItem="cLd-DA-qQ8" firstAttribute="centerY" secondItem="Dog-Op-DsD" secondAttribute="centerY" id="rbe-c9-Odi"/>
-                                    <constraint firstItem="XVB-ol-1Qg" firstAttribute="centerX" secondItem="cLd-DA-qQ8" secondAttribute="centerX" id="sad-8b-Lh4"/>
-                                    <constraint firstItem="XVB-ol-1Qg" firstAttribute="top" secondItem="cLd-DA-qQ8" secondAttribute="bottom" constant="10" id="tfL-qR-lo3"/>
-                                    <constraint firstItem="cLd-DA-qQ8" firstAttribute="centerX" secondItem="Dog-Op-DsD" secondAttribute="centerX" id="yzK-Jq-5hP"/>
+                                    <constraint firstItem="XVB-ol-1Qg" firstAttribute="centerX" secondItem="Dog-Op-DsD" secondAttribute="centerX" id="tAQ-Fo-lae"/>
+                                    <constraint firstItem="XVB-ol-1Qg" firstAttribute="leading" secondItem="Dog-Op-DsD" secondAttribute="leading" constant="50" id="vzw-sy-ZwU"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="iUU-VS-cxZ" appends="YES" id="S9a-wo-JDS"/>
@@ -133,9 +135,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="FullScreenImageView" destination="Dog-Op-DsD" id="M7y-0O-GFT"/>
                         <outlet property="fullScreenImage" destination="cLd-DA-qQ8" id="9h7-0U-7qH"/>
-                        <outlet property="fullScreenImageDesc" destination="XVB-ol-1Qg" id="xvV-R1-xGt"/>
+                        <outlet property="fullScreenImageDesc" destination="XVB-ol-1Qg" id="g0b-xk-bXu"/>
                         <outlet property="fullScreenImageView" destination="Dog-Op-DsD" id="tmv-ev-Srh"/>
                         <outlet property="headerView" destination="7LR-SG-E1V" id="nRc-vr-juh"/>
                         <outlet property="imageCollectionView" destination="Zrl-sq-S7Y" id="xeW-Gb-R5b"/>
@@ -153,7 +154,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="21.600000000000001" y="31.934032983508249"/>
+            <point key="canvasLocation" x="20.289855072463769" y="31.793478260869566"/>
         </scene>
     </scenes>
     <resources>
