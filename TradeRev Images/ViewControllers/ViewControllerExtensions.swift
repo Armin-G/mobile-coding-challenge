@@ -9,6 +9,8 @@ import UIKit
 import Nuke
 
 extension ViewController: UICollectionViewDelegateFlowLayout{
+    
+    //Creates and changes the sizes of the cell based on the image to keep aspect ratios
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let deviceOrientation = UIDevice.current.orientation
         
@@ -25,7 +27,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout{
             scaledWidth = Double(screenWidth) * (2.0 / 5.0)
             scaledHeight = scaledWidth * (ogHeight / ogWidth)
         }else if(deviceOrientation == .landscapeLeft || deviceOrientation == .landscapeRight){// Use height to determine size
-            scaledHeight = Double(screenHeight)  * (2.0 / 5.0)
+            scaledHeight = Double(screenHeight)  * (3.0 / 5.0)
             scaledWidth = scaledHeight * (ogWidth / ogHeight)
         }
 
@@ -34,10 +36,12 @@ extension ViewController: UICollectionViewDelegateFlowLayout{
 }
 
 extension ViewController: UICollectionViewDataSource{
+    //Returns the amount of cells needed
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }
     
+    //Loads the images into the cells
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! CollectionImageViewCell
         Nuke.loadImage(with: URL(string: images[indexPath.row].urls!["regular"]!)!, into: cell.imageView)
@@ -46,20 +50,21 @@ extension ViewController: UICollectionViewDataSource{
 }
 
 extension ViewController: UICollectionViewDelegate{
+    
+    //Determines what happens when you select a cell image
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         isInFullScreenMode = true;
         setupFullScreenImage(index: indexPath.row)
-        
-        
+
         let attributes: UICollectionViewLayoutAttributes? = collectionView.layoutAttributesForItem(at: indexPath)
         let cellRect: CGRect? = attributes?.frame
         let cellFrameInSuperview = collectionView.convert(cellRect ?? CGRect.zero, to: collectionView.superview)
         animateFullScreen(cellPos: cellFrameInSuperview.origin, cellRect: cellRect!)
 
-        
         fullScreenImageView.isHidden = false
     }
     
+    // Adds and changed the insets based on devie and orientation
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets{
         let deviceOrientation = UIDevice.current.orientation
         let device = UIDevice.current.userInterfaceIdiom

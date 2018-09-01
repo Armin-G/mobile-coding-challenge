@@ -14,7 +14,6 @@ class ViewController: UIViewController, JSONRequestDelegate {
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var headerView: UIView!
     var images: [Image] = []
-    var imageCollectionViewFlowLayout: UICollectionViewFlowLayout?
     let myDefaults = UserDefaults.standard
     var isInFullScreenMode = false
     
@@ -41,16 +40,14 @@ class ViewController: UIViewController, JSONRequestDelegate {
 
         let myService = JSONService()
         myService.delegate = self
-
         myService.sendRequest()
-        
     }
     
     override func viewDidLayoutSubviews() {
         headerView.dropShadow()
     }
     
-    /* Used to change fullscreen image sizing based on screen orientation */
+    // Used to change fullscreen image sizing based on screen orientation
     @objc func rotated(){
         if(isInFullScreenMode){
             if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {//Landscape
@@ -71,6 +68,7 @@ class ViewController: UIViewController, JSONRequestDelegate {
         }
     }
 
+    //Full screen swipe right gesture action
     @IBAction func swipeRight(_ sender: Any) {
         let index = myDefaults.integer(forKey: "full_screen_image_id")
         var nextIndex = index - 1
@@ -81,7 +79,7 @@ class ViewController: UIViewController, JSONRequestDelegate {
         setupFullScreenImage(index: nextIndex)
     }
     
-
+    //Full screen swipe left gesture action
     @IBAction func swipeLeft(_ sender: Any) {
         let index = myDefaults.integer(forKey: "full_screen_image_id")
         var nextIndex = index + 1
@@ -90,22 +88,25 @@ class ViewController: UIViewController, JSONRequestDelegate {
             nextIndex = 0
         }
         setupFullScreenImage(index: nextIndex)
-        
     }
     
     // Used to set up the full screen image and it's information
     func setupFullScreenImage(index: Int){
         myDefaults.set(index, forKey: "full_screen_image_id")
         setFullScreenSizes(mode: UIDevice.current.orientation, index: index)
-        Nuke.loadImage(with: URL(string: images[index].urls!["regular"]!)!, into: fullScreenImage)        
+        Nuke.loadImage(with: URL(string: images[index].urls!["regular"]!)!, into: fullScreenImage)
+        
         let imageDesc = images[index].description ?? "No description available"
         let likeCount = images[index].likes ?? 0
         let likeDesc = "\(likeCount) likes"
         let desc = "\"\(imageDesc)\""
+        let imageIndicator = "\(index + 1) of \(images.count)"
+        
         fullScreenImageDesc.text = desc
         fullScreenImageLikes.text = likeDesc
         fullScreenImage.image = fullScreenImage.image?.resizeImage(newSize: fullScreenImage.bounds.size)
-        fullScreenImageIndicator.text = "\(index + 1) of \(images.count)"
+        fullScreenImageIndicator.text = imageIndicator
+        
         self.view.setNeedsLayout()
         self.view.setNeedsDisplay()
     }
@@ -127,10 +128,12 @@ class ViewController: UIViewController, JSONRequestDelegate {
             scaledHeight = screenHeight
             scaledWidth = scaledHeight * ogWidth / ogHeight
         }
+        
         fullScreenImage.bounds.size = CGSize(width: scaledWidth, height: scaledHeight)
         fullScreenImageExitButton.tintColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
     }
     
+    //Exit fullscreen button action
     @IBAction func exitFullScreen(_ sender: Any) {
         isInFullScreenMode = false
 
@@ -160,6 +163,7 @@ class ViewController: UIViewController, JSONRequestDelegate {
         })
     }
     
+    // Animates image from cell to fullscreen mode
     func animateFullScreen(cellPos: CGPoint, cellRect: CGRect){
         cellPosition = cellPos
         cellSize = cellRect
