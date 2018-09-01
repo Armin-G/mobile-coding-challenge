@@ -24,6 +24,7 @@ class ViewController: UIViewController, JSONRequestDelegate {
     @IBOutlet weak var fullScreenImageDesc: UILabel!
     @IBOutlet weak var fullScreenImageLikes: UILabel!
     @IBOutlet weak var fullScreenImageExitButton: UIButton!
+    @IBOutlet weak var fullScreenImageIndicator: UILabel!
     
     //Fullscreen image animation positions and size variables
     var cellPosition: CGPoint!
@@ -40,7 +41,7 @@ class ViewController: UIViewController, JSONRequestDelegate {
 
         let myService = JSONService()
         myService.delegate = self
-        
+
         myService.sendRequest()
         
     }
@@ -69,37 +70,34 @@ class ViewController: UIViewController, JSONRequestDelegate {
             self.imageCollectionView.reloadData()
         }
     }
-    
 
-    
     @IBAction func swipeRight(_ sender: Any) {
         let index = myDefaults.integer(forKey: "full_screen_image_id")
-        let nextIndex = index - 1
+        var nextIndex = index - 1
         
-        if(index == 0){// Can't go left anymore
-            return
-        }else{
-            setupFullScreenImage(index: nextIndex)
+        if(index == 0){// reach first image, wrap around to last image
+            nextIndex = images.count - 1
         }
+        setupFullScreenImage(index: nextIndex)
     }
     
 
     @IBAction func swipeLeft(_ sender: Any) {
         let index = myDefaults.integer(forKey: "full_screen_image_id")
-        let nextIndex = index + 1
+        var nextIndex = index + 1
 
-        if(index == images.count - 1){// Can't go right anymore
-            return
-        }else{
-            setupFullScreenImage(index: nextIndex)
+        if(index == images.count - 1){// reached last image, wrap around to first image
+            nextIndex = 0
         }
+        setupFullScreenImage(index: nextIndex)
+        
     }
     
     // Used to set up the full screen image and it's information
     func setupFullScreenImage(index: Int){
         myDefaults.set(index, forKey: "full_screen_image_id")
         setFullScreenSizes(mode: UIDevice.current.orientation, index: index)
-        Nuke.loadImage(with: URL(string: images[index].urls!["regular"]!)!, into: fullScreenImage)
+        Nuke.loadImage(with: URL(string: images[index].urls!["regular"]!)!, into: fullScreenImage)        
         let imageDesc = images[index].description ?? "No description available"
         let likeCount = images[index].likes ?? 0
         let likeDesc = "\(likeCount) likes"
@@ -107,6 +105,7 @@ class ViewController: UIViewController, JSONRequestDelegate {
         fullScreenImageDesc.text = desc
         fullScreenImageLikes.text = likeDesc
         fullScreenImage.image = fullScreenImage.image?.resizeImage(newSize: fullScreenImage.bounds.size)
+        fullScreenImageIndicator.text = "\(index + 1) of \(images.count)"
         self.view.setNeedsLayout()
         self.view.setNeedsDisplay()
     }
@@ -135,10 +134,13 @@ class ViewController: UIViewController, JSONRequestDelegate {
     @IBAction func exitFullScreen(_ sender: Any) {
         isInFullScreenMode = false
 
-        self.fullScreenImage.isHidden = true
-        self.fullScreenImageLikes.isHidden = true
-        self.fullScreenImageDesc.isHidden = true
-        self.fullScreenImageExitButton.isHidden = true
+        fullScreenImage.isHidden = true
+        fullScreenImageLikes.isHidden = true
+        fullScreenImageDesc.isHidden = true
+        fullScreenImageExitButton.isHidden = true
+        fullScreenImageIndicator.isHidden = true
+
+        //Animate back to cell
         UIView.animate(withDuration: 0.25, animations: {
             self.top.constant = self.cellPosition.y - self.view.safeAreaInsets.top/2
             self.leading.constant = self.cellPosition.x
@@ -162,12 +164,14 @@ class ViewController: UIViewController, JSONRequestDelegate {
         cellPosition = cellPos
         cellSize = cellRect
 
+        //Set fullscreen to cells location and size
         top.constant = cellPos.y - self.view.safeAreaInsets.top/2
         leading.constant = cellPos.x
         trailing.constant = (self.view.frame.size.width - (leading.constant + cellSize.width))
         bottom.constant = (self.view.frame.size.height - (top.constant + cellSize.height))
         self.view.layoutIfNeeded()
         
+        //Animate to fullscreen
         UIView.animate(withDuration: 0.25, animations: {
             self.top.constant = 0
             self.bottom.constant = 0
@@ -179,6 +183,7 @@ class ViewController: UIViewController, JSONRequestDelegate {
             self.fullScreenImageLikes.isHidden = false
             self.fullScreenImageDesc.isHidden = false
             self.fullScreenImageExitButton.isHidden = false
+            self.fullScreenImageIndicator.isHidden = false
         })
     }
 }

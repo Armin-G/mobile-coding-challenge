@@ -41,7 +41,6 @@ extension ViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! CollectionImageViewCell
         Nuke.loadImage(with: URL(string: images[indexPath.row].urls!["regular"]!)!, into: cell.imageView)
-
         return cell
     }
 }
@@ -73,15 +72,15 @@ extension ViewController: UICollectionViewDelegate{
         
         if(deviceOrientation == .portrait){// Use width to determine size
             if(device == .pad){// if iPad make insets bigger
-                leftRightInset = screenWidth * (1 / 12)
+                leftRightInset = screenWidth * (1.0 / 12.0)
             }else if(device == .phone){
-                leftRightInset = screenWidth * (1 / 15)
+                leftRightInset = screenWidth * (1.0 / 15.0)
             }
         }else if(deviceOrientation == .landscapeLeft || deviceOrientation == .landscapeRight){// Use height to determine size
             if(device == .pad){// if iPad make insets bigger
-                leftRightInset = screenHeight * (1 / 10)
+                leftRightInset = screenHeight * (1.0 / 10.0)
             }else if(device == .phone){
-                leftRightInset = screenHeight * (1 / 15)
+                leftRightInset = screenHeight * (1.0 / 15.0)
             }
         }
         inset = UIEdgeInsets(top: 20, left: leftRightInset, bottom: 20, right: leftRightInset)
@@ -89,5 +88,3 @@ extension ViewController: UICollectionViewDelegate{
         return inset
     }
 }
-
-
