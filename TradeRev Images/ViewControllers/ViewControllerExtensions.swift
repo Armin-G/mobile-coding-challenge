@@ -55,8 +55,6 @@ extension ViewController: UICollectionViewDelegate{
         let attributes: UICollectionViewLayoutAttributes? = collectionView.layoutAttributesForItem(at: indexPath)
         let cellRect: CGRect? = attributes?.frame
         let cellFrameInSuperview = collectionView.convert(cellRect ?? CGRect.zero, to: collectionView.superview)
-//        print("\(cellFrameInSuperview.origin)")
-//        print("FSORIGIN: ", fullScreenImageView.frame.origin)
         animateFullScreen(cellPos: cellFrameInSuperview.origin, cellRect: cellRect!)
 
         
