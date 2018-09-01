@@ -50,6 +50,16 @@ extension ViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         isInFullScreenMode = true;
         setupFullScreenImage(index: indexPath.row)
+        
+        
+        let attributes: UICollectionViewLayoutAttributes? = collectionView.layoutAttributesForItem(at: indexPath)
+        let cellRect: CGRect? = attributes?.frame
+        let cellFrameInSuperview = collectionView.convert(cellRect ?? CGRect.zero, to: collectionView.superview)
+//        print("\(cellFrameInSuperview.origin)")
+//        print("FSORIGIN: ", fullScreenImageView.frame.origin)
+        animateFullScreen(cellPos: cellFrameInSuperview.origin, cellRect: cellRect!)
+
+        
         fullScreenImageView.isHidden = false
     }
     
