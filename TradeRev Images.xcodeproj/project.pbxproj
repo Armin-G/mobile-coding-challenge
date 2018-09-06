@@ -13,13 +13,14 @@
 		EB11879D2137256200B5E902 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB11879B2137256200B5E902 /* Main.storyboard */; };
 		EB1187A22137256200B5E902 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB1187A02137256200B5E902 /* LaunchScreen.storyboard */; };
 		EB44EA682138BC5E007F4AB6 /* ResizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44EA672138BC5E007F4AB6 /* ResizeImage.swift */; };
+		EB712A222141BAF6002CBB51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB712A212141BAF6002CBB51 /* Assets.xcassets */; };
+		EB712A242141BB94002CBB51 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = EB712A232141BB94002CBB51 /* SF-Pro-Display-Regular.otf */; };
 		EB9E4BC621378EBE004F9AC2 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E4BC521378EBE004F9AC2 /* DropShadow.swift */; };
 		EB9E4BC821378F06004F9AC2 /* CollectionImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E4BC721378F06004F9AC2 /* CollectionImageViewCell.swift */; };
 		EB9E4BCA21379004004F9AC2 /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E4BC921379004004F9AC2 /* JSONService.swift */; };
 		EB9E4BCC21379036004F9AC2 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E4BCB21379036004F9AC2 /* Image.swift */; };
 		EB9E4BCE21379048004F9AC2 /* JSONRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E4BCD21379048004F9AC2 /* JSONRequestDelegate.swift */; };
 		EB9E4BD921386670004F9AC2 /* ViewControllerDelegateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E4BD821386670004F9AC2 /* ViewControllerDelegateExtensions.swift */; };
-		EBF410E6213A166800846EDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF410E5213A121F00846EDA /* Assets.xcassets */; };
 		EBF410EE213AF61700846EDA /* ViewControllerFullScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF410ED213AF61700846EDA /* ViewControllerFullScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,14 +35,14 @@
 		EB1187A12137256200B5E902 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB1187A32137256200B5E902 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB44EA672138BC5E007F4AB6 /* ResizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImage.swift; sourceTree = "<group>"; };
-		EB942E5F2139C44F00FF9A15 /* SFCompactDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFCompactDisplay-Regular.otf"; path = "../../../../../../../Volumes/SF-Font/SF Compact/SFCompactDisplay-Regular.otf"; sourceTree = "<group>"; };
+		EB712A212141BAF6002CBB51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB712A232141BB94002CBB51 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
 		EB9E4BC521378EBE004F9AC2 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
 		EB9E4BC721378F06004F9AC2 /* CollectionImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionImageViewCell.swift; sourceTree = "<group>"; };
 		EB9E4BC921379004004F9AC2 /* JSONService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONService.swift; sourceTree = "<group>"; };
 		EB9E4BCB21379036004F9AC2 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		EB9E4BCD21379048004F9AC2 /* JSONRequestDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRequestDelegate.swift; sourceTree = "<group>"; };
 		EB9E4BD821386670004F9AC2 /* ViewControllerDelegateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegateExtensions.swift; sourceTree = "<group>"; };
-		EBF410E5213A121F00846EDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../.Trash/TradeRev Images copy/TradeRev Images/Assets.xcassets"; sourceTree = "<group>"; };
 		EBF410ED213AF61700846EDA /* ViewControllerFullScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFullScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,8 +103,8 @@
 				EB1187972137256200B5E902 /* AppDelegate.swift */,
 				EB11879B2137256200B5E902 /* Main.storyboard */,
 				EB1187A02137256200B5E902 /* LaunchScreen.storyboard */,
-				EBF410E5213A121F00846EDA /* Assets.xcassets */,
 				EB1187A32137256200B5E902 /* Info.plist */,
+				EB712A212141BAF6002CBB51 /* Assets.xcassets */,
 			);
 			path = "TradeRev Images";
 			sourceTree = "<group>";
@@ -111,7 +112,7 @@
 		EB942E5E2139C44400FF9A15 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				EB942E5F2139C44F00FF9A15 /* SFCompactDisplay-Regular.otf */,
+				EB712A232141BB94002CBB51 /* SF-Pro-Display-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -208,8 +209,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBF410E6213A166800846EDA /* Assets.xcassets in Resources */,
 				EB1187A22137256200B5E902 /* LaunchScreen.storyboard in Resources */,
+				EB712A222141BAF6002CBB51 /* Assets.xcassets in Resources */,
+				EB712A242141BB94002CBB51 /* SF-Pro-Display-Regular.otf in Resources */,
 				EB11879D2137256200B5E902 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
